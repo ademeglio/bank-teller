@@ -19,8 +19,8 @@ public class BankTest {
 	@Before
 	public void setUp() {
 		underTest = new Bank();
-		account1 = new BankAccount("1", "Checking", 100);
-		account2 = new BankAccount("2", "Savings", 100);
+		account1 = new BankAccount("1", "Checking", 100.00);
+		account2 = new BankAccount("2", "Savings", 100.00);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class BankTest {
 		underTest.add(account1);
 		underTest.withdraw(account1.getAccountNumber(), 50);
 		
-		assertThat(account1.getBalance(), is(50));
+		assertThat(account1.getBalance(), is(50.00));
 	}
 	
 	@Test
@@ -62,7 +62,9 @@ public class BankTest {
 		underTest.add(account1);
 		underTest.deposit(account1.getAccountNumber(), 50);
 		
-		assertThat(account1.getBalance(), is(150));
+		assertThat(account1.getBalance(), is(150.00));
 	}
+	
+	
 	
 } // End Test();

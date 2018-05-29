@@ -9,8 +9,7 @@ public class Bank {
 	Map<String, BankAccount> accounts = new HashMap<>();
 	
 	public void add(BankAccount account) {
-		accounts.put(account.getAccountNumber(), account);
-		
+		accounts.put(account.getAccountNumber(), account);	
 	}
 
 	public BankAccount findAccount(String accountNum) {
@@ -18,7 +17,6 @@ public class Bank {
 	}
 
 	public Collection<BankAccount> getAllAccounts() {
-		// TODO Auto-generated method stub
 		return accounts.values();
 	}
 
@@ -26,12 +24,12 @@ public class Bank {
 		accounts.remove(account.getAccountNumber(), account);
 	}
 
-	public void withdraw(String accountNumber, int amount) {
+	public void withdraw(String accountNumber, double amount) {
 		BankAccount withdrawFromAccount = findAccount(accountNumber);
 		withdrawFromAccount.withdraw(amount);
 	}
 
-	public void deposit(String accountNumber, int amount) {
+	public void deposit(String accountNumber, double amount) {
 		BankAccount depositToAccount = findAccount(accountNumber);
 		depositToAccount.deposit(amount);		
 	}

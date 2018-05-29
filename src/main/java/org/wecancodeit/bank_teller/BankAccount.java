@@ -3,28 +3,35 @@ package org.wecancodeit.bank_teller;
 public class BankAccount {
 
 	private String accountNumber;
-	private int balance;
+	private String type;
+	private double balance;
 
-	public BankAccount(String accountNumber, String string2, int balance) {
+	// Constructor
+	public BankAccount(String accountNumber, String type, double balance) {
 		this.accountNumber = accountNumber;
-		
+		this.type = type;
 		this.balance = balance;
-		
 	}
 
+	// Getters
 	public String getAccountNumber() {
 		return accountNumber;
 	}
-
-	public int getBalance() {
-		return balance;
+	
+	public String getAccountType() {
+		return type;
 	}
 
-	public void withdraw(int amount) {
+	public double getBalance() {
+		return balance;
+	}
+	
+	// Methods
+	public void withdraw(double amount) {
 		balance -= amount;
 	}
 
-	public void deposit(int amount) {
+	public void deposit(double amount) {
 		balance += amount;		
 	}
 
