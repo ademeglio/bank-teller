@@ -61,6 +61,7 @@ public class BankingApp {
 						+ " account Balance is now $" 
 						+ myBank.findAccount(account).getBalance());
 				break;
+			
 			case "2" : // Withdraw
 				System.out.println("Withdrawal, please enter account number.");
 				account = userInput.nextLine();
@@ -72,29 +73,33 @@ public class BankingApp {
 						+ " account Balance is now $" 
 						+ myBank.findAccount(account).getBalance());
 				break;
+			
 			case "3" : // Check Balance
 				System.out.println("Which account would you like to check the balance on?");
 				account = userInput.nextLine();
 				System.out.println("You have $" + myBank.findAccount(account).getBalance()
 					+ " in " +myBank.findAccount(account).getAccountType());
+				break;
+				
 			case "4" : // Close Account
 				System.out.println("Which account would you like to close?");
-				account = userInput.nextLine();
-				BankAccount bankAccount = mybank.findAccount
-				myBank.close(account);
+				String closeAccount = userInput.nextLine();
+				myBank.close(myBank.findAccount(closeAccount));
+				System.out.println(closeAccount + " HAS BEEN CLOSED.");
+
+				break;
 				
-				System.out.println("You have $" + myBank.findAccount(account).getBalance()
-					+ " in " +myBank.findAccount(account).getAccountType());
 			case "5" : // Terminate app
+				userInput.close();
 				System.out.println("Thank you for banking with us!");
 				System.exit(0);
+			
 			default :
 				System.out.println("Please select from one of the options (1 - 5)");
 			} // end switch
 		
-		
 		} // End Menu Loop
-
+		
 	}  // End Main
 
 	public static void displayAccounts(Collection<BankAccount> collection) {
@@ -104,6 +109,7 @@ public class BankingApp {
 					+ " " + currentAccount.getAccountType() + " $"
 					+ currentAccount.getBalance());
 		}
+		
 	} // end displayAccounts();
 	
 } // end BankingApp();
